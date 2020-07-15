@@ -1,18 +1,20 @@
+import os
+
 # Redis Host
-HOST = 'localhost'
+HOST = os.getenv('REDIS_HOST', 'localhost')
 # Redis PORT
-PORT = 6379
+PORT = os.getenv('REDIS_PORT', 6379)
 
 # Redis 中存放代理池的 Set 名
-POOL_NAME = 'proxies'
+POOL_NAME = os.getenv('POOL_NAME', 'proxies')
 
 # Pool 的低阈值和高阈值
-POOL_LOWER_THRESHOLD = 10
-POOL_UPPER_THRESHOLD = 40
+POOL_LOWER_THRESHOLD = os.getenv('POOL_LOWER_THRESHOLD', 10)
+POOL_UPPER_THRESHOLD = os.getenv('POOL_LOWER_THRESHOLD', 40)
 
 # 两个调度进程的周期
-VALID_CHECK_CYCLE = 600
-POOL_LEN_CHECK_CYCLE = 20
+VALID_CHECK_CYCLE = os.getenv('VALID_CHECK_CYCLE', 600)
+POOL_LEN_CHECK_CYCLE = os.getenv('POOL_LEN_CHECK_CYCLE', 20)
 
 # headers
 HEADERS = {
